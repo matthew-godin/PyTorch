@@ -1,0 +1,25 @@
+import torch
+
+print(torch.__version__)
+torch.set_default_dtype(torch.float64)
+print(torch.get_default_dtype())
+tensor_arr = torch.Tensor([[1, 2, 3], [4, 5, 6]])
+print(torch.is_tensor(tensor_arr))
+print(torch.numel(tensor_arr))
+tensor_uninitialized = torch.Tensor(2, 2)
+tensor_initialized = torch.rand(2, 2)
+tensor_int = torch.tensor([5, 3]).type(torch.IntTensor)
+tensor_short = torch.ShortTensor([5.0, 3.0])
+tensor_float = torch.tensor([5.0, 3.0]).type(torch.half)
+tensor_fill = torch.full((2, 6), fill_value=10)
+tensor_of_ones = torch.ones([2, 4], dtype=torch.int32)
+tensor_of_zeros = torch.zeros_like(tensor_of_ones)
+tensor_eye = torch.eye(5)
+non_zero = torch.nonzero(tensor_eye)
+print(non_zero)
+# indices
+i = torch.tensor([[0, 1, 1], [2, 2, 0]])
+# values
+v = torch.tensor([3, 4, 5], dtype=torch.float32)
+sparse_tensor = torch.sparse_coo_tensor(i, v, [2, 5])
+print(sparse_tensor.data)
